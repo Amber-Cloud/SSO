@@ -9,5 +9,7 @@ defmodule Sso.Repo.Migrations.CreateClients do
 
       timestamps()
     end
+
+    create unique_index(:clients, [:client_id])
   end
 end

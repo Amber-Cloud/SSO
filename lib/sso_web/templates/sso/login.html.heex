@@ -1,0 +1,13 @@
+<h2>Please log in</h2>
+
+<form action="/login_submit">
+    <input type="hidden" id="stateId" name="state" value={@state}>
+    <input type="hidden" id="redirect_urlId" name="redirect_url" value={@redirect_url}>
+    <input type="hidden" id="client_id" name="client_id" value={@client_id}>
+    <label for="fname">Email:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Password:</label><br>
+    <input type="text" id="lname" name="lname"><br><br>
+    <input type="submit" value="Submit">
+</form>
+

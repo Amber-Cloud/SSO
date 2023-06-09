@@ -1,5 +1,8 @@
-<h2>Do you want to grant <%= @site_name %> access to your email?</h2>
+<h2>Do you want to grant access to your email?</h2>
 
-<form action="/action_page.php">
-    <input type="submit" value="Yes">
+<form action="/accept_and_redirect">
+    <input type="hidden" id="redirect_urlId" name="redirect_url" value={"#{@redirect_url}"} />
+    <input type="hidden" id="stateId" name="state" value={"#{@state}"} %> />
+    <input type="hidden" id="client_id" name="client_id" value={"#{@client_id}"} %> />
+    <input type="submit" value="Yes"/>
 </form>

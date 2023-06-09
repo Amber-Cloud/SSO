@@ -6,6 +6,7 @@ defmodule Sso.User do
     field :email, :string
     field :password_hash, :string
 
+    belongs_to :client, Sso.Client
     timestamps()
   end
 

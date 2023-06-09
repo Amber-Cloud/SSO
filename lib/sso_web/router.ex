@@ -19,8 +19,11 @@ defmodule SsoWeb.Router do
 
     get "/", SsoController, :index
     get "/new_user", SsoController, :new_user
-    get "/login", SsoController, :login
+    get "/login_form", SsoController, :login_form
+    post "/login_submit", SsoController, :login_submit
+    get "/accept_form", SsoController, :accept_form
     get "/register_app", SsoController, :register_app
+    post "/accept_and_redirect", SsoController, :accept_and_redirect
     post "/get_access_token", SsoController, :get_access_token
     get "/get_user_email", SsoController, :get_user_email
   end

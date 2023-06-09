@@ -7,6 +7,8 @@ defmodule Sso.Client do
     field :client_secret, :string
     field :redirect_url, :string
 
+    has_many :users, Sso.User, on_delete: :delete_all
+
     timestamps()
   end
 
