@@ -14,6 +14,12 @@ defmodule SsoWeb.SsoController do
     text(conn, "Welcome, #{email}!")
   end
 
+  def login(conn, %{"email" => email, "password" => password, "redirect" => site_name}) do
+    case Repo.get_by(User, [email: email, password_hash: hash_input(password)]) |> IO.inspect() do
+      nil -> text(conn, "You are not registered")
+      _ -> render(conn, "accept.html", site_name: site_name)
+    end
+  end
   def login(conn, %{"email" => email, "password" => password}) do
     case Repo.get_by(User, [email: email, password_hash: hash_input(password)]) do
       nil -> text(conn, "You are not registered")
@@ -21,7 +27,8 @@ defmodule SsoWeb.SsoController do
     end
   end
 
-  def register_app(conn, _params) do
+  def register_app(conn, %{"redirect_url" => redirect_url}) do
+
     text(conn, "placeholder")
   end
   def get_access_token(conn, _params) do
